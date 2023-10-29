@@ -281,7 +281,19 @@ void setup() {
 }
 
 void loop() {
-
+  read_sensors();
+    for(int i=0; i< COUNT_SENSORS; i++){
+      Serial.print("Sensor ");
+      Serial.print(i);
+      Serial.print(" :");
+      Serial.print(sensor_ranges[i]);
+      Serial.print("mm");
+      Serial.println();
+      delay(500);
+    }
+    // if(sensor_ranges[0] > 75){ 1
+    //   //do something
+    // }
   VL53L0X_RangingMeasurementData_t measure;
     
   Serial.print("Reading a measurement... ");
